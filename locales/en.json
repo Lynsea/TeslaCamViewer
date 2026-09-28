@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "TeslaCamViewer.com",
+    "title": "TeslaCam",
     "description": "View Tesla dashcam footage with synchronized camera playback"
   },
 
@@ -289,7 +289,7 @@
       "privacyModeHint": "Strip timestamp, GPS, location, and mini-map from exports",
       "blurPlates": "Blur License Plates",
       "blurPlatesHint": "AI-powered plate detection (~12MB model, cached after first use)",
-      "branding": "Show TeslaCamViewer.com branding",
+      "branding": "Show TeslaCam branding",
       "brandingHint": "Display branding in the bottom banner of exported videos"
     },
 
@@ -724,7 +724,7 @@
 
   "license": {
     "activated": "License Activated!",
-    "howItWorks": "Here's how your TeslaCamViewer Pro license works:",
+    "howItWorks": "Here's how your Pro license works:",
     "privacyFirst": "Privacy First",
     "privacyFirstDesc": "Your email is only used to verify your license locally on this device. It's never sent to any server.",
     "savedInTwoPlaces": "Saved in Two Places",

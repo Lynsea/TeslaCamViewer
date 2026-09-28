@@ -4041,7 +4041,7 @@ class PlateEnhancer {
                 const fontSize = Math.max(16, Math.min(48, diagonalLength / 12));
                 ctx.font = `bold ${fontSize}px Arial, sans-serif`;
 
-                const text = 'TeslaCamViewer.com';
+                const text = 'TeslaCam';
                 const textMetrics = ctx.measureText(text);
 
                 // Save context, move to center, rotate
@@ -4342,7 +4342,7 @@ class PlateEnhancer {
         if (!window.app?.sessionManager?.checkAccess) {
             // No session manager - this is free mode, block Pro features
             console.log(`[PlateEnhancer] Pro feature "${feature}" blocked - no session manager`);
-            this.showToast('This feature requires TeslaCamViewer Pro');
+            this.showToast('This feature requires Pro license');
             return false;
         }
 

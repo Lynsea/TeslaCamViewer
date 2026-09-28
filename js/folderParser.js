@@ -260,7 +260,7 @@ class FolderParser {
         const d = this._lastDiagnostics;
         const s = d.stats;
 
-        let report = `=== TeslaCamViewer Diagnostic Report ===
+        let report = `=== TeslaCam Diagnostic Report ===
 Generated: ${d.timestamp}
 App Version: ${window.app?.versionManager?.currentVersion || 'Unknown'}
 

@@ -513,7 +513,7 @@ class TeslaCamViewerApp {
                 'The File System Access API is disabled on insecure URLs.\n\n' +
                 'You\'re currently on:\n  ' + window.location.origin + '\n\n' +
                 'To select a drive, open one of:\n' +
-                '  • https://teslacamviewer.com\n' +
+                '  • https://teslacam.io/viewer.html\n' +
                 '  • http://localhost (or http://127.0.0.1)\n' +
                 '  • An HTTPS URL'
             );
@@ -3868,8 +3868,7 @@ class TeslaCamViewerApp {
                         + 'This usually means the hardware encoder hung or Windows reset the graphics driver. '
                         + 'Try one of: lower the export resolution (Settings), disable plate blur for this export, '
                         + 'export a shorter time range using IN/OUT markers, or update your graphics driver.\n\n'
-                        + 'If it keeps happening, open Settings → Diagnostics → Console Log Capture and send us the log — '
-                        + 'we just added detailed encoder/decoder context to help support@teslacamviewer.com diagnose this.'
+                        + 'If it keeps happening, open Settings → Diagnostics → Console Log Capture and save the log for a bug report.'
                     );
                 } else {
                     alert('Export was unable to complete: ' + error.message);
@@ -5553,7 +5552,7 @@ class TeslaCamViewerApp {
                     <textarea readonly class="diagnostic-textarea">${report}</textarea>
                 </div>
                 <div class="diagnostic-modal-footer">
-                    <a href="https://github.com/teslacamviewer/teslacamviewer.github.io/issues/new"
+                    <a href="https://github.com/Lynsea/TeslaCamViewer/issues/new"
                        target="_blank" class="diagnostic-btn primary">
                         🐛 Open GitHub Issue
                     </a>
@@ -5647,14 +5646,14 @@ class TeslaCamViewerApp {
      * Show warning about multiple instances
      */
     _showInstanceWarning() {
-        console.warn('[App] Another TeslaCamViewer instance detected in another tab/window!');
+        console.warn('[App] Another TeslaCam instance detected in another tab/window!');
 
         // Create persistent warning banner
         const banner = document.createElement('div');
         banner.id = 'instance-warning-banner';
         banner.innerHTML = `
             <div style="background: #ff6b35; color: white; padding: 10px 20px; text-align: center; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 10001; display: flex; justify-content: center; align-items: center; gap: 15px;">
-                <span>⚠️ Another TeslaCamViewer tab is open. This may cause playback issues. Please close other tabs.</span>
+                <span>⚠️ Another TeslaCam tab is open. This may cause playback issues. Please close other tabs.</span>
                 <button onclick="this.parentElement.remove()" style="background: white; color: #ff6b35; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">Dismiss</button>
             </div>
         `;

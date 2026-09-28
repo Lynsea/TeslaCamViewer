@@ -518,7 +518,7 @@ class ScreenshotCapture {
         const shouldWatermark = await sessionManager.shouldWatermark();
         if (!shouldWatermark) return;
 
-        const watermarkText = 'TeslaCamViewer.com - Unlicensed';
+        const watermarkText = 'TeslaCam - Unlicensed';
 
         if (layoutConfig && layoutConfig.cameras) {
             // Add watermark to each camera in layout
@@ -548,7 +548,7 @@ class ScreenshotCapture {
         const shouldWatermark = await sessionManager.shouldWatermark();
         if (!shouldWatermark) return;
 
-        const watermarkText = 'TeslaCamViewer.com - Unlicensed';
+        const watermarkText = 'TeslaCam - Unlicensed';
         this.drawWatermarkOnRegion(ctx, 0, 0, width, height, watermarkText);
     }
 

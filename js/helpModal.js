@@ -339,7 +339,7 @@ class HelpModal {
                 platform: navigator.platform,
                 timestamp: new Date().toISOString()
             };
-            const report = `TeslaCamViewer Bug Report\n${JSON.stringify(info, null, 2)}`;
+            const report = `TeslaCam Bug Report\n${JSON.stringify(info, null, 2)}`;
             try {
                 await navigator.clipboard.writeText(report);
                 alert('Basic diagnostic info copied to clipboard!');

@@ -840,9 +840,9 @@ class VideoExport {
                 `Export failed: ${fastPathError.message || fastPathError}\n\n` +
                 `Try this first: refresh the page (Ctrl+Shift+R) and retry the export. ` +
                 `Most encoder errors are transient WebCodecs state that a reload clears.\n\n` +
-                `If it still fails after a reload, please send the diagnostic log to ` +
-                `support@teslacamviewer.com — Settings → Diagnostics → Console Log Capture ` +
-                `has a Copy / Download button that includes the codec and dimensions we need.`
+                `If it still fails after a reload, save a diagnostic log for a bug report. ` +
+                `Settings → Diagnostics → Console Log Capture has a Copy / Download button ` +
+                `that includes the codec and dimensions.`
             );
         }
 
@@ -1472,11 +1472,11 @@ class VideoExport {
                 ctx.fillText('Sentry', margin, cy);
             }
 
-            // TeslaCamViewer.com branding (centered)
+            // TeslaCam branding (centered)
             ctx.font = `bold ${fontBrand}px Arial`;
             ctx.fillStyle = '#ffffff';
             ctx.textAlign = 'center';
-            ctx.fillText('TeslaCamViewer.com', width / 2, cy);
+            ctx.fillText('TeslaCam', width / 2, cy);
 
             // Timestamp (right)
             ctx.font = `bold ${fontTimestamp}px Arial`;
@@ -1914,7 +1914,7 @@ class VideoExport {
             return true;
         }
 
-        // Pro users can opt out via the "Show TeslaCamViewer.com branding" toggle
+        // Pro users can opt out via the "Show TeslaCam branding" toggle
         const settings = window.app?.settingsManager;
         return settings?.get('showBrandingInExport') !== false;
     }
@@ -1925,7 +1925,7 @@ class VideoExport {
      * @param {Object} layoutConfig
      */
     addWatermarksToFrame(ctx, layoutConfig) {
-        const watermarkText = 'TeslaCamViewer.com - Unlicensed';
+        const watermarkText = 'TeslaCam - Unlicensed';
 
         if (layoutConfig && layoutConfig.cameras) {
             for (const [cameraName, camConfig] of Object.entries(layoutConfig.cameras)) {

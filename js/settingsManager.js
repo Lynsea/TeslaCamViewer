@@ -86,7 +86,7 @@ class SettingsManager {
             blurLicensePlates: false,  // Off by default since it slows export significantly
 
             // Branding in exports - only applies to licensed users
-            showBrandingInExport: true  // Show TeslaCamViewer.com branding by default
+            showBrandingInExport: true  // Show TeslaCam branding by default
         };
 
         this.settings = this.loadSettings();
@@ -2035,7 +2035,7 @@ class SessionManager {
                     <button class="session-modal-close">&times;</button>
                 </div>
                 <div class="session-modal-content">
-                    <p style="margin-bottom: 16px;">A TeslaCamViewer Pro license was found on this drive. Enter your email to recover it:</p>
+                    <p style="margin-bottom: 16px;">A Pro license was found on this drive. Enter your email to recover it:</p>
                     <input type="email" id="driveRecoveryEmail" placeholder="Enter your email"
                            style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-primary); margin-bottom: 12px;">
                     <div id="driveRecoveryError" style="color: #f44336; font-size: 12px; margin-bottom: 12px; display: none;"></div>
@@ -2096,7 +2096,7 @@ class SessionManager {
                 this._showRecoverySuccess(result.daysRemaining);
             } else {
                 errorDiv.textContent = result.expired
-                    ? 'This license has expired. Please renew at teslacamviewer.com'
+                    ? 'This license has expired.'
                     : 'Email does not match the license on this drive';
                 errorDiv.style.display = 'block';
                 submitBtn.disabled = false;
@@ -2167,7 +2167,7 @@ class SessionManager {
             <div class="session-modal-overlay"></div>
             <div class="session-modal-panel">
                 <div class="session-modal-header">
-                    <h2>TeslaCamViewer Pro</h2>
+                    <h2>License status</h2>
                     <button class="session-modal-close">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
@@ -2219,9 +2219,6 @@ class SessionManager {
                     </div>
                 </div>
                 <div class="session-modal-footer">
-                    <button class="session-btn-secondary" id="sessionBuyBtn">
-                        Buy License
-                    </button>
                     <button class="session-btn-primary" id="sessionActivateBtn">
                         Activate
                     </button>
@@ -2240,7 +2237,6 @@ class SessionManager {
         const overlay = this._modal.querySelector('.session-modal-overlay');
         const closeBtn = this._modal.querySelector('.session-modal-close');
         const activateBtn = this._modal.querySelector('#sessionActivateBtn');
-        const buyBtn = this._modal.querySelector('#sessionBuyBtn');
 
         // Only close if click started AND ended on overlay (prevents close during text selection)
         let mouseDownOnOverlay = false;
@@ -2266,10 +2262,6 @@ class SessionManager {
                 this._handleActivate();
             }
         });
-        buyBtn.addEventListener('click', () => {
-            window.open('https://www.natemccomb.store/shop', '_blank');
-        });
-
         // ESC to close
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this._modal && !this._modal.classList.contains('hidden')) {
@@ -2612,8 +2604,7 @@ class SessionManager {
         banner.className = `session-expiry-banner ${warning.level}`;
         banner.innerHTML = `
             <span>${warning.message}</span>
-            <button class="renew-btn">Renew Now</button>
-            ${warning.level === 'warning' ? '<button class="dismiss">✕</button>' : ''}
+            <button class="dismiss" aria-label="Dismiss license warning">✕</button>
         `;
 
         document.body.appendChild(banner);
@@ -2622,10 +2613,6 @@ class SessionManager {
         document.body.style.paddingTop = banner.offsetHeight + 'px';
 
         // Bind events
-        banner.querySelector('.renew-btn').addEventListener('click', () => {
-            window.open('https://www.natemccomb.store/shop', '_blank');
-        });
-
         const dismissBtn = banner.querySelector('.dismiss');
         if (dismissBtn) {
             dismissBtn.addEventListener('click', () => {
@@ -2654,10 +2641,10 @@ class SessionManager {
             // Mirror the daily-view modal copy: reassure the user they
             // can still re-export their already-exported events. Only
             // NEW events are gated.
-            message = `You've used your 2 free export events today. You can still re-export either of those events at any time — only NEW exports are gated. Limit resets at midnight, or upgrade for unlimited exports.`;
+            message = `You've used your 2 free export events today. You can still re-export either of those events at any time — only NEW exports are gated. Limit resets at midnight.`;
         } else {
             title = 'Feature Locked';
-            message = 'This feature requires a TeslaCamViewer Pro license.';
+            message = 'This feature requires an active Pro license.';
         }
 
         modal.innerHTML = `
@@ -2673,13 +2660,11 @@ class SessionManager {
                 </div>
                 <div class="session-modal-content">
                     <p style="margin-bottom: 1rem;">${message}</p>
-                    <p style="color: var(--accent);">Upgrade for unlimited access - just $5.99/year</p>
                 </div>
                 <div class="session-modal-footer">
                     <button class="session-btn-secondary close-btn">
                         ${type === 'daily' ? 'Wait Until Tomorrow' : 'Close'}
                     </button>
-                    <button class="session-btn-primary upgrade-btn">Upgrade</button>
                 </div>
             </div>
         `;
@@ -2702,10 +2687,6 @@ class SessionManager {
 
         modal.querySelector('.session-modal-close').addEventListener('click', closeModal);
         modal.querySelector('.close-btn').addEventListener('click', closeModal);
-        modal.querySelector('.upgrade-btn').addEventListener('click', () => {
-            closeModal();
-            this.showSessionModal();
-        });
     }
 }
 

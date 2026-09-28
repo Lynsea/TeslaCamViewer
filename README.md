@@ -1,8 +1,17 @@
 # TeslaCam Viewer
 
-A powerful browser-based Tesla dashcam viewer with synchronized multi-angle playback, telemetry visualization, and comprehensive incident analysis tools. All processing happens locally - your video files never leave your computer.
+A browser-based Tesla dashcam viewer with synchronized multi-angle playback, telemetry visualization, and incident analysis tools. Video files stay on your device; optional map and weather features use external services.
 
-**Live Site: [teslacamviewer.com](https://teslacamviewer.com)**
+This fork adds an SEO-ready site for **teslacam.io** while preserving the browser viewer. It is based on [Nate McComb's TeslaCamViewer](https://github.com/NateMccomb/TeslaCamViewer). GitHub Pages publishes the `codex/seo-pages` branch from the repository root.
+
+- `index.html`: product introduction
+- `features/index.html`: feature overview
+- `guides/open-tesla-dashcam-footage/index.html`: setup guide
+- `use-cases/`: Sentry Mode, dashcam, and export guides
+- `viewer.html`: original browser viewer
+- `robots.txt` and `sitemap.xml`: crawl guidance for the content pages
+
+The original project is live at [teslacamviewer.com](https://teslacamviewer.com). This fork uses its own domain and is not affiliated with Tesla, Inc.
 
 ## Key Features
 
@@ -57,14 +66,14 @@ Firefox and Safari are not supported.
 
 ## Getting Started
 
-### Option 1: Use the Live Site (Recommended)
+### Option 1: Use the Original Live Site
 
-Visit [teslacamviewer.com](https://teslacamviewer.com) - no installation required.
+The original project is available at [teslacamviewer.com](https://teslacamviewer.com). This fork's intended site is [teslacam.io](https://teslacam.io); check DNS and HTTPS status if the domain does not load.
 
 ### Option 2: Run Locally
 
 1. Clone or download this repository
-2. Open `index.html` in Chrome or Edge, or run a local server:
+2. Run a local server from the repository root:
 
 ```bash
 # Using Python
@@ -74,7 +83,7 @@ python -m http.server 8000
 npx http-server -p 8000
 ```
 
-3. Open http://localhost:8000 in your browser
+3. Open http://localhost:8000 for the site, or http://localhost:8000/viewer.html for the player in Chrome or Edge.
 
 ### Option 3: Offline Package
 
@@ -143,7 +152,7 @@ TeslaCamViewer connects to the following external services for enhanced function
 | [Open-Meteo](https://open-meteo.com) | GPS coordinates, date | Weather conditions for events |
 | [Overpass API](https://overpass-api.de) | GPS coordinates | Speed limit data from OpenStreetMap |
 | [Nominatim](https://nominatim.openstreetmap.org) | GPS coordinates | Address lookup for insurance reports |
-| [TeslaCamViewer.com](https://teslacamviewer.com) | None | Version update check only |
+| This fork's own origin | None | Version update check only |
 
 ### Map Tile Providers (Images Only)
 

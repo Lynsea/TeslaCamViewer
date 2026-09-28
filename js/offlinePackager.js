@@ -268,7 +268,7 @@ class OfflinePackager {
 
             // Trigger download with version in filename
             const version = window.app?.versionManager?.getVersion() || 'unknown';
-            this.downloadBlob(blob, `TeslaCamViewer-v${version}.zip`);
+            this.downloadBlob(blob, `TeslaCam-v${version}.zip`);
 
             // Close modal after short delay
             setTimeout(() => {
@@ -488,8 +488,11 @@ class OfflinePackager {
      * @returns {Promise<string>} HTML content
      */
     async createOfflineHTML(fontCSS) {
-        // Fetch the current index.html
-        let html = await this.fetchLocal('index.html');
+        // The hosted player lives at viewer.html; the download still uses index.html.
+        let html = await this.fetchLocal('viewer.html');
+
+        // The offline archive contains only the player, so omit the hosted site's home link.
+        html = html.replace(/<a href="\/" class="header-btn site-home-btn"[\s\S]*?<\/a>/, '');
 
         // Replace CDN links with local vendor paths
         html = html.replace(
@@ -531,8 +534,8 @@ class OfflinePackager {
 
         // Update title to indicate offline version
         html = html.replace(
-            '<title>TeslaCamViewer.com - Multi-Angle Dashcam Playback</title>',
-            '<title>TeslaCamViewer - Offline</title>'
+            '<title>TeslaCam Viewer</title>',
+            '<title>TeslaCam - Offline</title>'
         );
 
         // Add offline banner and detection script before closing body tag
@@ -605,22 +608,10 @@ class OfflinePackager {
                     </button>
                 </div>
                 <div class="offline-packager-content" style="padding: 20px;">
-                    <p style="margin-bottom: 15px;">Offline packaging is available with a TeslaCamViewer Pro license.</p>
-                    <p style="margin-bottom: 15px;">Upgrade to unlock:</p>
-                    <ul style="margin-left: 20px; margin-bottom: 20px;">
-                        <li>Unlimited event viewing</li>
-                        <li>Watermark-free exports</li>
-                        <li>Offline package creation</li>
-                    </ul>
+                    <p style="margin-bottom: 15px;">Offline packaging requires an active Pro license. If you already have one, use the license status control to activate it.</p>
                 </div>
                 <div class="offline-packager-footer">
                     <button class="offline-packager-btn secondary close-btn">Close</button>
-                    <button class="offline-packager-btn primary upgrade-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                        </svg>
-                        Upgrade
-                    </button>
                 </div>
             </div>
         `;
@@ -631,7 +622,6 @@ class OfflinePackager {
         const closeBtn = modal.querySelector('.offline-packager-close-btn');
         const closeBtnFooter = modal.querySelector('.close-btn');
         const overlay = modal.querySelector('.offline-packager-overlay');
-        const upgradeBtn = modal.querySelector('.upgrade-btn');
 
         const closeModal = () => modal.remove();
 
@@ -648,15 +638,6 @@ class OfflinePackager {
             }
         });
 
-        upgradeBtn.addEventListener('click', () => {
-            closeModal();
-            // Open session modal if available
-            if (window.app?.sessionManager?.showSessionModal) {
-                window.app.sessionManager.showSessionModal();
-            } else {
-                window.open('https://www.natemccomb.store/', '_blank');
-            }
-        });
     }
 }
 

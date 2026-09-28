@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to View Tesla Dashcam &amp; Sentry Clips | TeslaCam</title>
+  <meta name="description" content="Learn how to open Tesla dashcam and Sentry Mode footage in Chrome or Edge, select the right TeslaCam folder, review camera angles, and fix common folder issues.">
+  <meta name="theme-color" content="#0b131d">
+  <link rel="canonical" href="https://teslacam.io/guides/open-tesla-dashcam-footage/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="TeslaCam">
+  <meta property="og:title" content="How to View Tesla Dashcam &amp; Sentry Clips">
+  <meta property="og:description" content="A practical guide to opening TeslaCam footage and reviewing the available camera angles in your browser.">
+  <meta property="og:url" content="https://teslacam.io/guides/open-tesla-dashcam-footage/">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://teslacam.io/"},{"@type":"ListItem","position":2,"name":"How to view Tesla dashcam footage","item":"https://teslacam.io/guides/open-tesla-dashcam-footage/"}]}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="TeslaCam home"><span class="brand-mark" aria-hidden="true"></span>TeslaCam</a><nav class="site-nav" aria-label="Main navigation"><a href="/#use-cases">Use cases</a><a href="/features/">Features</a><a href="/guides/open-tesla-dashcam-footage/" aria-current="page">Guide</a><a class="nav-cta" href="/viewer.html">Open viewer</a></nav></div></header>
+  <main id="main">
+    <section class="page-hero"><div class="wrap"><p class="eyebrow">Setup guide</p><h1>How to view Tesla dashcam and Sentry Mode footage.</h1><p class="lead">You can review TeslaCam recordings without opening every MP4 separately. This guide shows how to find the right folder, open it in the browser viewer, and check common playback problems.</p><div class="hero-actions"><a class="button button-primary" href="/viewer.html">Open the viewer →</a></div></div></section>
+    <section class="section"><div class="wrap content-grid">
+      <article class="prose">
+        <h2 id="before">Before you start</h2>
+        <p>You need access to the drive or folder holding your TeslaCam recordings and a current version of <strong>Chrome or Edge</strong>. The viewer uses the browser's folder access feature, which Safari and Firefox do not support. If you use the hosted viewer, open it over HTTPS; if you run a local copy, use a local web server.</p>
+        <p>Your video files are read from the folder you select. They are not uploaded to the site. Some optional features, including maps and weather, can contact external services with location information.</p>
+
+        <h2 id="find-folder">Find your TeslaCam folder</h2>
+        <p>On your connected drive or computer, look for a folder named <code>TeslaCam</code>. It may contain <code>SavedClips</code>, <code>SentryClips</code>, and <code>RecentClips</code>. You can choose the main TeslaCam folder to browse the available recording types together, or choose one of its clip folders directly.</p>
+        <ul>
+          <li><strong>SavedClips</strong> contains saved dashcam events.</li>
+          <li><strong>SentryClips</strong> contains events recorded by Sentry Mode.</li>
+          <li><strong>RecentClips</strong> contains recent rolling footage that may change as the drive is used.</li>
+        </ul>
+        <p>The folders and camera files you see depend on what your vehicle recorded. A missing angle in the viewer can mean that the corresponding video file is not present in that event.</p>
+
+        <h2 id="open-folder">Open the footage in the viewer</h2>
+        <ol>
+          <li>Open the <a href="/viewer.html">TeslaCam viewer</a> in Chrome or Edge.</li>
+          <li>Select <strong>“Select TeslaCam Folder”</strong> in the sidebar.</li>
+          <li>Choose your <code>TeslaCam</code> folder or a folder containing the recordings, then allow the browser to read it.</li>
+          <li>Pick an event from the sidebar. The viewer loads the camera videos available for that event.</li>
+        </ol>
+        <p>Use the timeline to seek through the event. You can change the layout, pause, step through frames, or switch to another recording. The <a href="/features/">features page</a> explains the main controls and optional tools.</p>
+        <p>For a specific task, see the guides to <a href="/use-cases/sentry-mode-viewer/">Sentry Mode events</a>, <a href="/use-cases/tesla-dashcam-viewer/">dashcam recordings</a>, and <a href="/use-cases/export-tesla-dashcam-video/">screenshots and exports</a>.</p>
+
+        <h2 id="troubleshooting">If no recordings appear</h2>
+        <p>First check that the selected folder actually contains TeslaCam video files. If you selected a parent folder, try the <code>TeslaCam</code> folder itself; if you selected an empty clip folder, try the main TeslaCam folder. Make sure the USB drive is still connected and readable.</p>
+        <p>If the folder picker is missing or cannot open, check that you are using Chrome or Edge. If an event appears but its video does not play, try another event to see whether the issue is limited to a particular MP4 file. Some older recordings do not contain the telemetry used by optional overlays; the video can still be viewed without that data.</p>
+
+        <h2 id="questions">Questions people ask</h2>
+        <div class="faq">
+          <div class="faq-item"><h3>Can I view Tesla Sentry Mode footage online?</h3><p>Yes, you can open the browser viewer online and select a local <code>SentryClips</code> folder. The video files themselves remain on your device.</p></div>
+          <div class="faq-item"><h3>Do I need to upload my dashcam files?</h3><p>No. Choose the folder in the browser. The viewer reads the files locally.</p></div>
+          <div class="faq-item"><h3>Why are some camera views missing?</h3><p>The viewer can only show camera files present in the selected event. Check the event folder for its MP4 files and try another event.</p></div>
+        </div>
+        <p style="margin-top: 32px">Ready to review a recording? <a href="/viewer.html">Open the viewer</a> and select your TeslaCam folder.</p>
+      </article>
+      <nav class="toc" aria-label="On this page"><p class="label">On this page</p><a href="#before">Before you start</a><a href="#find-folder">Find your TeslaCam folder</a><a href="#open-folder">Open the footage</a><a href="#troubleshooting">Troubleshooting</a><a href="#questions">Questions</a></nav>
+    </div></section>
+    <section class="cta-band"><div class="wrap cta-inner"><h2>Review your clips in one place.</h2><a class="button button-primary" href="/viewer.html">Open the viewer →</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><div><a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>TeslaCam</a><p>Browser-based TeslaCam viewer. Not affiliated with Tesla, Inc. Source and license details are in the repository.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="/#use-cases">Use cases</a><a href="/features/">Features</a><a href="https://github.com/Lynsea/TeslaCamViewer">Source code</a></nav></div></footer>
+</body>
+</html>

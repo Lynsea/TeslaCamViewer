@@ -524,7 +524,7 @@ class DriveSyncUI {
             Comparing...
         `;
 
-        document.title = 'Comparing... - TeslaCamViewer';
+        document.title = 'Comparing... - TeslaCam';
 
         try {
             const results = await this.driveSync.compareEvents();
@@ -788,11 +788,11 @@ class DriveSyncUI {
             const percent = state.bytesTotal > 0
                 ? Math.round((state.bytesCompleted / state.bytesTotal) * 100)
                 : 0;
-            document.title = `Syncing ${percent}% - TeslaCamViewer`;
+            document.title = `Syncing ${percent}% - TeslaCam`;
         } else if (state.status === 'paused') {
-            document.title = 'Paused - TeslaCamViewer';
+            document.title = 'Paused - TeslaCam';
         } else if (state.status === 'verifying') {
-            document.title = 'Verifying... - TeslaCamViewer';
+            document.title = 'Verifying... - TeslaCam';
         }
     }
 
@@ -834,7 +834,7 @@ class DriveSyncUI {
         if (etaStat) etaStat.textContent = `ETA: ${this.driveSync.formatDuration(eta)}`;
 
         // Update title
-        document.title = `Syncing ${percent}% - TeslaCamViewer`;
+        document.title = `Syncing ${percent}% - TeslaCam`;
     }
 
     onComplete(state) {
@@ -912,7 +912,7 @@ class DriveSyncUI {
         this.stopTitleFlash();
         let flash = true;
         this.titleFlashInterval = setInterval(() => {
-            document.title = flash ? 'Sync Complete! - TeslaCamViewer' : this.originalTitle;
+            document.title = flash ? 'Sync Complete! - TeslaCam' : this.originalTitle;
             flash = !flash;
         }, 1000);
 
@@ -921,14 +921,14 @@ class DriveSyncUI {
 
         // Try notification API
         if (Notification.permission === 'granted') {
-            new Notification('TeslaCamViewer', {
+            new Notification('TeslaCam', {
                 body: 'Drive sync complete!',
                 icon: '/favicon.svg'
             });
         } else if (Notification.permission !== 'denied') {
             Notification.requestPermission().then(permission => {
                 if (permission === 'granted') {
-                    new Notification('TeslaCamViewer', {
+                    new Notification('TeslaCam', {
                         body: 'Drive sync complete!',
                         icon: '/favicon.svg'
                     });

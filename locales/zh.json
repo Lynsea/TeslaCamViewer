@@ -6,7 +6,7 @@
   },
 
   "app": {
-    "title": "TeslaCamViewer.com",
+    "title": "TeslaCam",
     "description": "查看特斯拉行车记录仪录像，支持同步播放"
   },
 
@@ -225,7 +225,7 @@
       "privacyModeHint": "Strip timestamp, GPS, location, and mini-map from exports",
       "blurPlates": "Blur License Plates",
       "blurPlatesHint": "AI-powered plate detection (~12MB model, cached after first use)",
-      "branding": "Show TeslaCamViewer.com branding",
+      "branding": "Show TeslaCam branding",
       "brandingHint": "Display branding in the bottom banner of exported videos"
     },
 

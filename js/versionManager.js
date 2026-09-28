@@ -15,7 +15,7 @@ class VersionManager {
         this.UPDATE_CHECK_INTERVAL = 4 * 60 * 60 * 1000; // 4 hours in ms
 
         // Remote version check URL
-        this.remoteVersionUrl = 'https://teslacamviewer.com/version.json';
+        this.remoteVersionUrl = new URL('version.json', window.location.href).href;
 
         // Current version - UPDATE THIS when releasing new features
         // Format: Year.Week.DayOfWeek.Release

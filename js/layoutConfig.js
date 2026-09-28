@@ -943,7 +943,7 @@ class LayoutConfig {
             const data = JSON.parse(jsonString);
 
             if (!data.teslacamviewer_layout) {
-                return { success: false, error: 'Not a valid TeslaCamViewer layout file' };
+                return { success: false, error: 'Not a valid TeslaCam layout file' };
             }
 
             if (!data.layout) {
