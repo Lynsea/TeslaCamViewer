@@ -7,7 +7,7 @@
   if (location.protocol !== "https:" || config.hosts.indexOf(location.hostname) < 0) return;
   var state = { loaded: false, stopped: false, storage: "denied" };
   window.__siteClarity = state;
-  var privatePath = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?(?:admin|ops|api|auth|account|settings|billing|checkout|dashboard|login|logout|sign-in|sign-up|signup|reset-password|forgot-password|verify-email|my-creations|my-videos|my-works|journal|viewer|editor|orders|credits|payment|payments|purchase|profile|history)(?:\/|\.html|$)/i;
+  var privatePath = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?(?:admin|ops|api|auth|account|settings|billing|checkout|dashboard|login|logout|sign-in|sign-up|signup|reset-password|forgot-password|verify-email|creations|my-creations|my-videos|my-works|journal|viewer|editor|orders|credits|payment|payments|purchase|profile|history)(?:\/|\.html|$)/i;
   var publicQuery = /^(?:utm_[a-z_]+|gclid|dclid|fbclid|msclkid|lang|hl|page|ref|source)$/i;
   function publicUrl(value) {
     try {
